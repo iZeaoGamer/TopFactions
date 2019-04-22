@@ -1,0 +1,9 @@
+---
+name: TopFactions
+author: Jackthehack21
+version: 1.0.0
+api: 3.7.0
+main: Jackthehack21\TopFactions\Main
+
+depend: [FactionsPro]
+...

@@ -1,0 +1,17 @@
+---
+plugin_enabled: true
+debug: false
+
+title: "{RED}--- {AQUA}Top Factions {RED}---"
+format: "{RED}{RANK}. {GREEN}{FACTION} - {AQUA}{POWER}"
+
+update_ticks: 100
+
+positions: []
+
+examplePositions:
+  - [0,20,0]
+  - [20,20,20]
+  - ["x","y","z"]
+  - "To add new floating text particles place the new coords in positions above examplePositions."
+...
