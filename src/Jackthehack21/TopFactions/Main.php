@@ -99,11 +99,12 @@ class Main extends PluginBase implements Listener{
         $keys = array_column($data, 'power');
         array_multisort($keys, SORT_ASC, $data);
 
-        $result = array_slice($data, 0, 10);
+        $result = array_slice(array_reverse($data), 0, 10);
         $return = "";
         $count = 1;
         foreach($result as $line){
             $return = $return.$this->colourise(str_replace(["{RANK}","{FACTION}","{POWER}"],[$count, $line["faction"], $line["power"]], $this->config["format"]))."\n";
+            $count++;
         }
         return $return;
     }
