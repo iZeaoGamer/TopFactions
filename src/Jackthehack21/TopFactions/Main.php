@@ -103,7 +103,7 @@ class Main extends PluginBase implements Listener{
         $return = "";
         $count = 1;
         foreach($result as $line){
-            $return = $return.$this->colourise(str_replace(["{RANK}","{FACTION}","{POWER}"],[$count, $line["faction"], $line["power"]], $this->config["format"]))."\n";
+            $return = $return.$this->colourise(TextFormat::colorize("&6Rank: &b$count, &6Faction: &b$line["faction"], &6STR: &b$line["power"]]" . "\n"));
             $count++;
         }
         return $return;
