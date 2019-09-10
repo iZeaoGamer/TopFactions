@@ -92,7 +92,16 @@ class Main extends PluginBase implements Listener{
         }
         return $data;
     }
-
+    private function getAllBalance(): array{
+        $list = $this->db->query("SELECT * FROM BALANCE;");
+        $data = [];
+$countTmp = $list->fetchArray(1);
+        while($countTmp !== false){
+            $data[] = $countTmp;
+            $countTmp = $list->fetchArray(1);
+        }
+        return $data;
+    }
     public function getLeaderBoard() : string{
         $data = $this->getAllFactions();
 
@@ -108,7 +117,21 @@ class Main extends PluginBase implements Listener{
         }
         return $return;
     }
+public function getBalLB(): string{
+            $data = $this->getAllBalance();
 
+        $keys = array_column($data, 'balance');
+        array_multisort($keys, SORT_ASC, $data);
+
+        $result = array_slice(array_reverse($data), 0, 10);
+        $return = "";
+        $count = 1;
+        foreach($result as $line){
+            $return = $return.$this->colourise(TextFormat::colorize("&6Rank: &b$count, &6Faction: &b$line["faction"], &6Balance: &b$line["balance"]]" . "\n"));
+            $count++;
+        }
+        return $return;
+    }
     public function getTitle() : string{
         return $this->colourise($this->config["title"]);
     }
