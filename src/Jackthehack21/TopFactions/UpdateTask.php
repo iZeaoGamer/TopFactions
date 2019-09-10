@@ -55,10 +55,12 @@ class UpdateTask extends Task{
     {
         $title = $this->plugin->getTitle();
         $lb = $this->plugin->getLeaderBoard();
+        $bal = $this->plugin->getBalLB();
         $list = $this->plugin->getParticles();
         foreach($list as $particle){
             $particle->setTitle($title, false);
             $particle->setText($lb);
+            $particle->setText($bal);
         }
     }
 }
